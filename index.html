@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>খাটগ্রাম ক্রিকেট টুর্নামেন্ট - ৪৫,০০০ ধামাকা</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        :root {
+            --gold: #FFD700;
+            --gold-light: #FFEC8B;
+            --gold-dark: #D4AF37;
+            --red: #FF0000;
+            --red-dark: #CC0000;
+            --yellow: #FFFF00;
+            --white: #FFFFFF;
+            --black: #000000;
+            --gray-dark: #1A1A1A;
+            --gray: #333333;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles - Mobile Optimized */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1595435934247-5d33b7f92c60?q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            display: flex;
+            align-items: center;
+            position: relative;
+            border-bottom: 3px solid var(--gold);
+            padding: 0 10px;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.9) 70%);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+            padding: 20px 10px;
+        }
+        
+        .main-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5), 3px 3px 0 rgba(255, 0, 0, 0.3);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            animation: titleGlow 3s infinite alternate;
+            line-height: 1.2;
+        }
+        
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.5), 3px 3px 0 rgba(255, 0, 0, 0.3); }
+            100% { text-shadow: 0 0 25px rgba(255, 215, 0, 0.8), 3px 3px 0 rgba(255, 0, 0, 0.5); }
+        }
+        
+        .main-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--white);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+        }
+        
+        .tournament-date {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--red), var(--red-dark));
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            border: 2px solid var(--gold);
+            margin-bottom: 25px;
+            animation: pulse 2s infinite;
+            line-height: 1.3;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold);
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            z-index: 10;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-8px); }
+            60% { transform: translateX(-50%) translateY(-4px); }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            border-top: 2px solid var(--gold);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 5px;
+            display: none;
+        }
+        
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--gold-light);
+            text-decoration: none;
+            font-size: 0.8rem;
+            padding: 8px 5px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            flex: 1;
+            max-width: 80px;
+        }
+        
+        .menu-item i {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .menu-item.active, .menu-item:hover {
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--gold);
+        }
+        
+        /* Main Content Sections - Mobile Optimized */
+        section {
+            padding: 50px 0;
+            position: relative;
+        }
+        
+        .section-bg-1 {
+            background: linear-gradient(to bottom, var(--black), var(--gray-dark));
+        }
+        
+        .section-bg-2 {
+            background: linear-gradient(to bottom, var(--gray-dark), var(--black));
+        }
+        
+        .section-bg-1:before, .section-bg-2:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--red), var(--yellow), var(--gold), var(--yellow), var(--red));
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--red), var(--yellow));
+            border-radius: 2px;
+        }
+        
+        /* Introduction Section */
+        .intro-content {
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 15px;
+            padding: 25px 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro-content:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--red), var(--yellow), var(--gold));
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-text {
+            color: var(--yellow);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        /* Tournament Details Grid - Mobile Optimized */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .detail-card {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.05), rgba(255, 0, 0, 0.05));
+            border-radius: 12px;
+            padding: 25px 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .detail-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--red), var(--yellow), var(--gold));
+        }
+        
+        .detail-card:active {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.1);
+            border-color: var(--gold);
+        }
+        
+        .card-icon {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+            text-align: center;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+            line-height: 1.3;
+        }
+        
+        .card-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+        
+        /* Prizes Section - Mobile Optimized */
+        .prizes-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .prize-card {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(255, 0, 0, 0.1));
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 4px solid var(--gold);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .prize-card:active {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(255, 215, 0, 0.2);
+        }
+        
+        .prize-card.main-prize {
+            border-top: 4px solid var(--yellow);
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.15), rgba(255, 0, 0, 0.15));
+        }
+        
+        .prize-icon {
+            font-size: 2.8rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .prize-amount {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--yellow);
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 8px rgba(255, 255, 0, 0.5);
+            line-height: 1.2;
+        }
+        
+        .prize-description {
+            font-size: 1.2rem;
+            color: var(--gold-light);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Rules Section - Mobile Optimized */
+        .rules-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .rule-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--red);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .rule-item:active {
+            background: rgba(255, 255, 255, 0.08);
+            border-left-color: var(--yellow);
+            transform: translateX(5px);
+        }
+        
+        .rule-number {
+            display: inline-block;
+            background: var(--red);
+            color: var(--white);
+            min-width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            margin-right: 12px;
+            box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+        
+        .rule-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        /* Location Section - Mobile Optimized */
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        .location-info {
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 12px;
+            padding: 25px 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .location-map {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--gold);
+            height: 300px;
+            position: relative;
+        }
+        
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .map-button {
+            display: block;
+            background: var(--red);
+            color: var(--white);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--gold);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .map-button:active {
+            background: var(--gold);
+            color: var(--black);
+            transform: scale(1.05);
+        }
+        
+        /* Contact Section - Mobile Optimized */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .contact-card {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.05), rgba(255, 0, 0, 0.05));
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:active {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            text-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+        }
+        
+        .contact-name {
+            font-size: 1.5rem;
+            color: var(--gold-light);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        
+        .contact-phone {
+            font-size: 1.5rem;
+            color: var(--yellow);
+            font-weight: 700;
+            margin-top: 12px;
+            direction: ltr;
+        }
+        
+        .contact-phone a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+        
+        /* Note Section */
+        .note-section {
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 25px 20px;
+            margin-top: 30px;
+            border-left: 4px solid var(--red);
+        }
+        
+        .note-title {
+            font-size: 1.4rem;
+            color: var(--yellow);
+            margin-bottom: 12px;
+        }
+        
+        /* Footer - Mobile Optimized */
+        footer {
+            background: var(--gray-dark);
+            padding: 40px 0 25px;
+            text-align: center;
+            border-top: 3px solid var(--gold);
+            position: relative;
+        }
+        
+        .organizer {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            line-height: 1.3;
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+            line-height: 1.5;
+        }
+        
+        .back-to-top {
+            display: inline-block;
+            background: var(--red);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border: 2px solid var(--gold);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .back-to-top:active {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-5px);
+        }
+        
+        /* Mobile-Specific Styles */
+        @media (max-width: 767px) {
+            .mobile-menu {
+                display: flex;
+            }
+            
+            /* Adjust section padding for mobile */
+            section {
+                padding: 40px 0;
+            }
+            
+            /* Larger tap targets for mobile */
+            .detail-card, .prize-card, .contact-card, .map-button, .rule-item {
+                cursor: pointer;
+            }
+            
+            /* Adjust text sizes for better mobile readability */
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .intro-text, .card-content, .rule-text {
+                font-size: 1rem;
+            }
+            
+            /* Adjust map height */
+            .location-map {
+                height: 250px;
+            }
+        }
+        
+        /* Tablet Styles */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .main-title {
+                font-size: 3.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.8rem;
+            }
+            
+            .details-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .prizes-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .rules-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .location-map {
+                height: 350px;
+            }
+        }
+        
+        /* Desktop Styles */
+        @media (min-width: 1025px) {
+            .container {
+                max-width: 1200px;
+            }
+            
+            .details-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .prizes-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .contact-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .rules-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .location-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .location-map {
+                height: 400px;
+            }
+            
+            /* Hover effects for desktop */
+            .detail-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(255, 215, 0, 0.1);
+                border-color: var(--gold);
+            }
+            
+            .prize-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 25px rgba(255, 215, 0, 0.2);
+            }
+            
+            .rule-item:hover {
+                background: rgba(255, 255, 255, 0.08);
+                border-left-color: var(--yellow);
+                transform: translateX(5px);
+            }
+            
+            .contact-card:hover {
+                transform: translateY(-5px);
+                border-color: var(--gold);
+                box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+            }
+            
+            .map-button:hover {
+                background: var(--gold);
+                color: var(--black);
+                transform: scale(1.05);
+            }
+            
+            .back-to-top:hover {
+                background: var(--gold);
+                color: var(--black);
+                transform: translateY(-5px);
+            }
+        }
+        
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Prevent text selection on tap for better mobile experience */
+        .no-select {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="header">
+        <div class="header-overlay"></div>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="main-title fade-in visible no-select">৪৫,০০০ ধামাকা</h1>
+                <p class="subtitle fade-in visible">শর্ট হ্যান্ড প্লাস্টিক ক্রিকেট টুর্নামেন্ট</p>
+                <div class="tournament-date fade-in visible">
+                    <i class="fas fa-calendar-alt"></i> ২২ ফেব্রুয়ারি, ২০২৬ (রবিবার)
+                </div>
+                <p class="fade-in visible" style="font-size: 1.1rem; max-width: 100%; margin: 0 auto 25px; line-height: 1.5;">
+                    খাটগ্রাম মহাকাল বয়েজ ক্লাব এর পরিচালনায় এক দিবা-রাত্রি ব্যাপী শর্ট হ্যান্ড প্লাস্টিক ক্রিকেট প্রতিযোগিতা
+                </p>
+                <a href="#introduction" class="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu">
+        <a href="#introduction" class="menu-item active">
+            <i class="fas fa-home"></i>
+            <span>হোম</span>
+        </a>
+        <a href="#details" class="menu-item">
+            <i class="fas fa-info-circle"></i>
+            <span>বিস্তারিত</span>
+        </a>
+        <a href="#prizes" class="menu-item">
+            <i class="fas fa-trophy"></i>
+            <span>পুরস্কার</span>
+        </a>
+        <a href="#rules" class="menu-item">
+            <i class="fas fa-clipboard-list"></i>
+            <span>নিয়ম</span>
+        </a>
+        <a href="#location" class="menu-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>লোকেশন</span>
+        </a>
+        <a href="#contact" class="menu-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>যোগাযোগ</span>
+        </a>
+    </nav>
+    
+    <!-- Introduction Section -->
+    <section id="introduction" class="section-bg-1">
+        <div class="container">
+            <h2 class="section-title fade-in">টুর্নামেন্ট পরিচিতি</h2>
+            
+            <div class="intro-content fade-in">
+                <p class="intro-text">প্রিয় ক্রিকেটপ্রেমী,</p>
+                <p class="intro-text">'খাটগ্রাম মহাকাল বয়েজ ক্লাব' এর পরিচালনায় আগামী (ইং-২২/০২/২০২৬) রবিবার এক দিবা-রাত্রি ব্যাপী শর্ট হ্যান্ড প্লাস্টিক ক্রিকেট প্রতিযোগীতার আয়োজন করা হইয়াছে। উক্ত প্রতিযোগীতাতে আপনাদের অংশগ্রহন একান্ত কাম্য।</p>
+                
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255,215,0,0.1); border-radius: 8px;">
+                    <p class="highlight-text">টুর্নামেন্ট হাইলাইটস:</p>
+                    <ul style="font-size: 1.1rem; padding-left: 20px; margin-top: 10px;">
+                        <li style="margin-bottom: 8px;">মোট পুরস্কার: <span style="color: var(--yellow);">৪৫,০০০ টাকা</span></li>
+                        <li style="margin-bottom: 8px;">দল সংখ্যা: ১৬ টি দল</li>
+                        <li style="margin-bottom: 8px;">খেলার ধরন: Day-Night শর্ট হ্যান্ড প্লাস্টিক ক্রিকেট</li>
+                        <li>প্রতিটি ম্যাচ: ৫ ওভার (২+১+১+১)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Tournament Details Section -->
+    <section id="details" class="section-bg-2">
+        <div class="container">
+            <h2 class="section-title fade-in">টুর্নামেন্টের বিস্তারিত</h2>
+            
+            <div class="details-grid">
+                <div class="detail-card fade-in no-select">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="card-title">সংগঠক</h3>
+                    <div class="card-content">
+                        পরিচালনায়: <span style="color: var(--yellow);">খাটগ্রাম মহাকাল বয়েজ ক্লাব (আরামবাগ)</span>
+                    </div>
+                </div>
+                
+                <div class="detail-card fade-in no-select">
+                    <div class="card-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="card-title">ভেন্যু</h3>
+                    <div class="card-content">
+                        খাটগ্রাম প্লে গ্রাউন্ড, খাটগ্রাম, সন্তোষপুর, গোগহাট, হুগলী<br>
+                        <span style="color: var(--yellow);">নিকটতম রেল স্টেশন: আরামবাগ</span>
+                    </div>
+                </div>
+                
+                <div class="detail-card fade-in no-select">
+                    <div class="card-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <h3 class="card-title">এন্ট্রি ফি</h3>
+                    <div class="card-content">
+                        প্রবেশমূল্য: <span style="font-size: 1.5rem; color: var(--yellow); font-weight: 700;">৩,০০০ টাকা</span><br>
+                        (প্রতি দল)
+                    </div>
+                </div>
+                
+                <div class="detail-card fade-in no-select">
+                    <div class="card-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <h3 class="card-title">দল সংখ্যা</h3>
+                    <div class="card-content">
+                        মোট দল সংখ্যা: <span style="color: var(--yellow); font-size: 1.5rem; font-weight: 700;">১৬ টি দল</span><br>
+                        প্রতি দলে খেলোয়াড়: ৯ জন
+                    </div>
+                </div>
+                
+                <div class="detail-card fade-in no-select">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="card-title">টুর্নামেন্ট তারিখ</h3>
+                    <div class="card-content">
+                        রবিবার, <span style="color: var(--yellow);">২২ ফেব্রুয়ারি, ২০২৬</span><br>
+                        এক দিবা-রাত্রি ব্যাপী
+                    </div>
+                </div>
+                
+                <div class="detail-card fade-in no-select">
+                    <div class="card-icon">
+                        <i class="fas fa-baseball-ball"></i>
+                    </div>
+                    <h3 class="card-title">খেলার ধরন</h3>
+                    <div class="card-content">
+                        শর্ট হ্যান্ড প্লাস্টিক ক্রিকেট<br>
+                        <span style="color: var(--yellow);">প্রতি ম্যাচ: ৫ ওভার</span><br>
+                        (২+১+১+১)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Prizes Section -->
+    <section id="prizes" class="section-bg-1">
+        <div class="container">
+            <h2 class="section-title fade-in">পুরস্কার</h2>
+            
+            <div class="prizes-container">
+                <div class="prize-card main-prize fade-in no-select">
+                    <div class="prize-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="prize-amount">২৫,০০০ টাকা</div>
+                    <div class="prize-description">বিজয়ী দল</div>
+                    <p style="margin-top: 10px; font-size: 1.1rem; color: var(--gold-light);">+ সুদৃশ্য বাহুবলী ট্রফি</p>
+                </div>
+                
+                <div class="prize-card main-prize fade-in no-select">
+                    <div class="prize-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="prize-amount">২০,০০০ টাকা</div>
+                    <div class="prize-description">বিজীত দল</div>
+                    <p style="margin-top: 10px; font-size: 1.1rem; color: var(--gold-light);">+ সুদৃশ্য বাহুবলী ট্রফি</p>
+                </div>
+                
+                <div class="prize-card fade-in no-select">
+                    <div class="prize-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="prize-amount" style="font-size: 1.7rem;">বিশেষ পুরস্কার</div>
+                    <div class="prize-description">
+                        <p style="margin: 8px 0; font-size: 1.1rem;"><i class="fas fa-user-graduate"></i> ম্যান অব দ্য সিরিজ</p>
+                        <p style="margin: 8px 0; font-size: 1.1rem;"><i class="fas fa-user"></i> ম্যান অব দ্য ম্যাচ</p>
+                        <p style="margin: 8px 0; font-size: 1.1rem;"><i class="fas fa-baseball-ball"></i> বেস্ট বোলার</p>
+                    </div>
+                    <p style="margin-top: 10px; font-size: 1.1rem; color: var(--yellow);">আকর্ষণীয় পুরস্কার</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Rules Section -->
+    <section id="rules" class="section-bg-2">
+        <div class="container">
+            <h2 class="section-title fade-in">নিয়মাবলী</h2>
+            
+            <div class="rules-container">
+                <div class="rule-item fade-in no-select">
+                    <span class="rule-number">১</span>
+                    <div class="rule-text">খেলাটি ৪ মারার মধ্যে সীমাবদ্ধ থাকবে।</div>
+                </div>
+                
+                <div class="rule-item fade-in no-select">
+                    <span class="rule-number">২</span>
+                    <div class="rule-text">খেলাটিতে প্রতিটি ম্যাচ ৫ ওভার করে হবে (২+১+১+১)।</div>
+                </div>
+                
+                <div class="rule-item fade-in no-select">
+                    <span class="rule-number">৩</span>
+                    <div class="rule-text">খেলাটি ৩৫ গ্রাম প্লাস্টিক বলে সুসম্পন্ন হবে।</div>
+                </div>
+                
+                <div class="rule-item fade-in no-select">
+                    <span class="rule-number">৪</span>
+                    <div class="rule-text">খেলাটি ১৬ টি দলের মধ্যে হবে।</div>
+                </div>
+                
+                <div class="rule-item fade-in no-select">
+                    <span class="rule-number">৫</span>
+                    <div class="rule-text">মাঠের মধ্যে কোনো অশ্লীল আচরণকারী খেলোয়াড়ের বিরুদ্ধে কমিটি বিশেষ শান্তির ব্যবস্থা নেবে।</div>
+                </div>
+                
+                <div class="rule-item fade-in no-select">
+                    <span class="rule-number">৬</span>
+                    <div class="rule-text">খেলাটিতে আম্পায়ারের সিদ্ধান্ত চূড়ান্ত বলে গণ্য হইবে।</div>
+                </div>
+                
+                <div class="rule-item fade-in no-select">
+                    <span class="rule-number">৭</span>
+                    <div class="rule-text">প্রতি দলে ৯ জন করে খেলোয়াড় থাকবে।</div>
+                </div>
+                
+                <div class="rule-item fade-in no-select">
+                    <span class="rule-number">৮</span>
+                    <div class="rule-text">প্রতি দলকে নির্দিষ্ট সময়ের মধ্যে মাঠে উপস্থিত হতে হবে।</div>
+                </div>
+                
+                <div class="rule-item fade-in no-select">
+                    <span class="rule-number">৯</span>
+                    <div class="rule-text">খেলাটিতে জার্সি, ট্র্যাকসুট এবং বুট বাধ্যতামূলক... কোনভাবেই জিন্স ও স্যান্ডেল গ্রাহ্য হবেনা।</div>
+                </div>
+                
+                <div class="rule-item fade-in no-select">
+                    <span class="rule-number">১০</span>
+                    <div class="rule-text">কোন খেলোয়াড় যদি নেশাগ্রস্ত অবস্থায় মাঠে খেলতে নামে তাকে কমিটি পুরো টুর্নামেন্টের বাতিল খেলোয়াড় বলে ঘোষণা করবে।</div>
+                </div>
+                
+                <div class="rule-item fade-in no-select">
+                    <span class="rule-number">১১</span>
+                    <div class="rule-text">খেলাটি Day-Night হবে।</div>
+                </div>
+                
+                <div class="rule-item fade-in no-select">
+                    <span class="rule-number">১২</span>
+                    <div class="rule-text">প্রত্যেক টিম কে সময়ে আসতে হবে। নাহলে কমিটির দেওয়া শান্তি মেনে নিতে হবে।</div>
+                </div>
+            </div>
+            
+            <div class="note-section fade-in">
+                <h3 class="note-title">বিশেষ নোট</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 8px;">১. বিঃ দ্রঃ- প্রাকৃতিক দুর্যোগের কারনে খেলার তারিখ পরিবর্তন হতে পারে। প্রয়োজনে ওভার কম বা বেশি হতে পারে।</p>
+                <p style="font-size: 1.1rem;">২. যদি টিম কম আসে তাহলে পুরস্কারের পরিমাণ কমানো হতে পারে।</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Location Section -->
+    <section id="location" class="section-bg-1">
+        <div class="container">
+            <h2 class="section-title fade-in">লোকেশন ও যাতায়াত</h2>
+            
+            <div class="location-container">
+                <div class="location-info fade-in">
+                    <h3 style="font-size: 1.5rem; color: var(--gold); margin-bottom: 15px;">খাটগ্রাম প্লে গ্রাউন্ড</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 12px; color: var(--yellow);">খাটগ্রাম, সন্তোষপুর, গোগহাট, হুগলী ৭১২৬০২</p>
+                    
+                    <div style="margin-top: 20px;">
+                        <h4 style="font-size: 1.3rem; color: var(--gold-light); margin-bottom: 12px;">যাতায়াত নির্দেশনা:</h4>
+                        <p style="font-size: 1.1rem; margin-bottom: 8px;">আরামবাগ স্টেশন থেকে নেমে Bengai Bustand (Towards Kotulpur)।</p>
+                        <p style="font-size: 1.1rem;">Bengai থেকে খাটগ্রাম বাইক বা টোটো তে ৫ মিনিট।</p>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <h4 style="font-size: 1.3rem; color: var(--gold-light); margin-bottom: 12px;">নিকটতম রেল স্টেশন:</h4>
+                        <p style="font-size: 1.3rem; color: var(--yellow);">আরামবাগ রেলওয়ে স্টেশন</p>
+                    </div>
+                </div>
+                
+                <div class="location-map fade-in">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117628.59364934118!2d87.70133948987436!3d22.882025315000222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8b17f44b9c2b3%3A0x4729c77c6dcd6aae!2sKhatagram%2C%20West%20Bengal%20712602!5e0!3m2!1sen!2sin!4v1645678901234!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <a href="https://maps.app.goo.gl/xa2SLMAU1YCZMiSBA" target="_blank" class="map-button fade-in">
+                <i class="fas fa-map-marker-alt"></i> গুগল ম্যাপে দেখুন
+            </a>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section-bg-2">
+        <div class="container">
+            <h2 class="section-title fade-in">যোগাযোগ</h2>
+            
+            <div class="contact-container">
+                <div class="contact-card fade-in no-select">
+                    <div class="contact-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="contact-name">নীলাঞ্জন</h3>
+                    <p style="font-size: 1.1rem;">প্রধান কো-অর্ডিনেটর</p>
+                    <div class="contact-phone">
+                        <a href="tel:+919832098995"><i class="fas fa-phone-alt"></i> ৯৮৩২০-৯৮৯৯৫</a>
+                    </div>
+                </div>
+                
+                <div class="contact-card fade-in no-select">
+                    <div class="contact-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="contact-name">সপ্তর্ষি</h3>
+                    <p style="font-size: 1.1rem;">সহ-কো-অর্ডিনেটর</p>
+                    <div class="contact-phone">
+                        <a href="tel:+916297446004"><i class="fas fa-phone-alt"></i> ৬২৯৭৪-৪৬০০৪</a>
+                    </div>
+                </div>
+                
+                <div class="contact-card fade-in no-select">
+                    <div class="contact-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="contact-name">সংগঠক</h3>
+                    <p style="font-size: 1.3rem; color: var(--gold); margin-bottom: 8px;">খাটগ্রাম মহাকাল বয়েজ ক্লাব</p>
+                    <p style="font-size: 1.1rem;">আরামবাগ, হুগলী</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="#header" class="back-to-top">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+            
+            <p class="organizer">খাটগ্রাম মহাকাল বয়েজ ক্লাব এর পরিচালনায়</p>
+            <p style="font-size: 1.2rem; color: var(--gold-light); margin-bottom: 15px; position: relative; z-index: 1; line-height: 1.3;">
+                ৪৫,০০০ ধামাকা ক্রিকেট টুর্নামেন্ট
+            </p>
+            <p class="copyright">© ২০২৬ | খাটগ্রাম মহাকাল বয়েজ ক্লাব | সকল অধিকার সংরক্ষিত</p>
+            <p class="copyright" style="margin-top: 10px;">টুর্নামেন্ট তারিখ: ২২ ফেব্রুয়ারি, ২০২৬ | ভেন্যু: খাটগ্রাম প্লে গ্রাউন্ড, খাটগ্রাম, হুগলী</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu active state
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.menu-item');
+            const sections = document.querySelectorAll('section');
+            
+            // Set up mobile menu click handlers
+            menuItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Remove active class from all menu items
+                        menuItems.forEach(item => item.classList.remove('active'));
+                        
+                        // Add active class to clicked menu item
+                        this.classList.add('active');
+                        
+                        // Scroll to section
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Update active menu item on scroll
+            function updateActiveMenu() {
+                let current = '';
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                menuItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === `#${current}`) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+            
+            // Scroll Animation
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const appearOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { 
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            fadeElements.forEach(element => {
+                appearOnScroll.observe(element);
+            });
+            
+            // Update active menu on scroll
+            window.addEventListener('scroll', updateActiveMenu);
+            
+            // Set current year in footer
+            const currentYear = new Date().getFullYear();
+            const yearElements = document.querySelectorAll('.copyright');
+            yearElements.forEach(element => {
+                element.innerHTML = element.innerHTML.replace('২০২৬', currentYear);
+            });
+            
+            // Make phone numbers clickable on mobile
+            const phoneNumbers = document.querySelectorAll('.contact-phone');
+            phoneNumbers.forEach(phone => {
+                phone.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        const phoneLink = this.querySelector('a');
+                        if (phoneLink) {
+                            window.location.href = phoneLink.getAttribute('href');
+                        }
+                    }
+                });
+            });
+            
+            // Initialize - set first section as active
+            updateActiveMenu();
+        });
+        
+        // Make touch events work better on mobile
+        document.addEventListener('touchstart', function() {}, {passive: true});
+    </script>
+</body>
+</html>
